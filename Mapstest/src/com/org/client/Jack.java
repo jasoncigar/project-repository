@@ -15,9 +15,10 @@ import com.google.gwt.user.client.ui.RootPanel;
  */
 public class Jack implements EntryPoint {
 	public void onModuleLoad() {
-		MapWidget mapWiget = new MapWidget(LatLng.newInstance(19.4556,72.5678), 13);
+		LatLng lt = LatLng.newInstance(19.155600,72.837800);
+		MapWidget mapWiget = new MapWidget(lt, 16);
 		mapWiget.setSize("500px", "300px");
-
+		mapWiget.addOverlay(new Marker(lt)); 
 	    mapWiget.addControl(new SmallMapControl());
 	    mapWiget.addControl(new MapTypeControl());
 
@@ -34,7 +35,7 @@ public class Jack implements EntryPoint {
 	        }
 	      }
 	    });
-	    mapWiget.setCenter(LatLng.newInstance(18,72));
+	  
 	    RootPanel.get().add(mapWiget);
 	}
 }
